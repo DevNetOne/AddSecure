@@ -1,0 +1,8 @@
+FROM retention-game-api-build-app
+
+ENV APP_ENV=prod
+
+COPY ./app/ .
+
+RUN composer install --no-dev && composer dump-autoload --no-dev --classmap-authoritative
+RUN chown -R www-data:www-data /application
